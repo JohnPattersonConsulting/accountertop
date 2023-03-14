@@ -5,8 +5,11 @@
 ## Warning:
 Accountertop is currently experimental and should not be considered as a fully secure password management tool. Although accountertop encrypts all data before it is written to disk, account information is temporarily stored as clear text in RAM once extracted. Furthermore, although all variables are deleted on exit of the program, their values may remain persistent in RAM until they are overwritten. Use at own risk.
 
-## Files/folders available for download:
+## Files/folders available for download on GitHub:
 * "accountertop.py": Human-readable python script that can be run in a suitably configured Python environment (see "Python script dependencies").
+
+## Large files/folders available for download on Google Drive:
+Google Drive link (V1.0): https://drive.google.com/drive/folders/1qbTklhnwyUl0omRUx1pRdXUnKDNQi6HM?usp=sharing
 * "accountertop_standalone.exe": Windows executable file that should run standalone, but may be slow to start.
 * "accountertop_exe_distribution": Folder containing a windows executable version of accountertop (accountertop.exe) with DLLs and other compiled files.
    (This distribution is less portable, but is slightly faster than the standalone exe).
