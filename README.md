@@ -7,34 +7,52 @@ Accountertop is currently experimental and should not be considered as a fully s
 
 ## Files/folders avaialble for download:
  -"accountertop.py": Human-readable python script that can be run in a suitably configured Python environment (see "Python script dependencies").
+
  -"accountertop_standalone.exe": Windows executable file that should run standalone, but may be slow to start.
+
  -"accountertop_exe_distribution": Folder containing a windows executable version of accountertop (accountertop.exe) with DLLs and other compiled files.
    (This distribution is less portable, but is slightly faster than the standalone exe).
 
 ## Python script dependencies:
  -os
+
  -base64
+
  -hashlib
+
  -getpass
+
  -cryptography.fernet
+
  -pickle 
+
  -pyperclip 
+
  -pyautogui
+
  -time
+
  -secrets
+
 
 ## Overview:
 Accountertop is designed to provide a local file-based password management and storage solution that requires no sign-up or account creation. Accountertop can be launched from a standalone .py script or from a standalone .exe file, and thus is designed for portability. All accountertop source code is visible within accountertop.py, so its security and application suitability can be directly inspected by the user, if desired.
 
 Accountertop offers the following password access methods (as of V1.0):
  -Direct display of usernames and passwords to the console (less secure)
+
  -Copying of usernames and passwords into the clipboard (somewhat secure)
+
  -Direct auto-typing of passwords into selected browser of program fields using pyautogui (more secure)
+
 
 Accountertop also offers the following password creation methods:
  -Direct typing/pasting of passwords with entries visible on the screen (less secure)
+
  -Direct typing/pasting of passwords with entries obscured (somewhat secure)
+
  -Automatic password generation with custom length and optional use of special characters using the “secrets” cryptographically secure randomizer (more secure)
+
 
 ## Basic Functionality:
 Accountertop works by storing account information in Python dictionary format, with the keys “account”, “username”, and “password” stored within each dictionary. A list of these dictionaries is maintained in RAM, and whenever a field within one of these is updated, the entire list of dictionaries is “pickled” into a binary data blob, is encrypted using a master password using Fernet, and is subsequently written to a unique new file on the disk. 
