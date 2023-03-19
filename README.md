@@ -33,7 +33,7 @@ Accountertop is designed to provide a local file-based password management and s
 Accountertop offers the following password access methods (as of V1.0):
 * Direct display of usernames and passwords to the console (less secure)
 * Copying of usernames and passwords into the clipboard (somewhat secure)
-* Direct auto-typing of passwords into selected browser of program fields using pyautogui (more secure)
+* Direct auto-typing of passwords into selected browser or program fields using pyautogui (more secure)
 
 
 Accountertop also offers the following password creation methods:
@@ -45,7 +45,8 @@ Accountertop also offers the following password creation methods:
 ## Basic Functionality:
 Accountertop works by storing account information in Python dictionary format, with the keys “account”, “username”, and “password” stored within each dictionary. A list of these dictionaries is maintained in RAM, and whenever a field within one of these is updated, the entire list of dictionaries is “pickled” into a binary data blob, is encrypted using a master password using Fernet, and is subsequently written to a unique new file on the disk. 
 
-In order to minimize the risk of password loss, a new storage file is created every time a field in any of the dictionaries is changed. If password loss of data file corruption occurs, any of the previous files can still be accessed to recover the data. In light of this, it is recommended that all prior password files be deleted if you change your master password, as these may still be accessible using older master passwords.
+In order to minimize the risk of password loss, a new storage file is created every time a field in any of the dictionaries is changed. If password loss or data file corruption occurs, any of the previous files can still be accessed to recover the data. In light of this, it is recommended that all prior password files be deleted if you change your master password, as these may still be accessible using older master passwords.
+
 When the program is first started, the master password is provided by the user in order to decrypt the most recent storage file. The name/number of the most recent saved file is logged in “save_num.log”. Saved files are stored as binary “pickle” files containing the encrypted binary data, and are sequentially numbered starting from 0 in the form “X.pkl”.
 
 Failure to read the save number log file or the latest saved file will result in the creation of a new empty storage file at file name/number 0. This typically only occurs when a new accountertop installation is used before any files have been created. 
